@@ -1,0 +1,56 @@
+OVERVIEW
+
+Authenticate User:
+Request user email only
+*Send OTP to user*
+*Validate OTP from user*
+*External Auth*
+
+Show Images:
+From locally stored images
+Check if user has previously rated image
+[if yes: Show appropraite like/dislike button and appropraite message, and also show a new image button if there are images for the user to rate]
+[if no: Show like/dislike button for the user to rate the image]
+Show history button
+Show thank you message if the user has rated all images available
+*From external source if a user has rated all in local store*
+
+Rate Image:
+1 for like, 0 for dislike
+[After rating, show next image]
+
+User History:
+Show all images the user has rated, along with the ratings and also show next and previous image buttons
+Show new image button if there are images for the user to rate
+
+*Edit Rating:*
+
+*Admin:*
+*Uploading images*
+
+
+
+
+
+BACKGROUND
+
+Check if email provided already exists
+Save user email and other info
+Encrypt ?user id? and use as cookie?sessionstorage? through out app
+Read and display images from file storage
+Read and display images from external source
+Save user rating, like - 1, dislike - 0
+Use user rating to apply css styles to like/dislike button
+Show user picture rating history
+
+
+
+
+
+
+
+
+
+
+
+
