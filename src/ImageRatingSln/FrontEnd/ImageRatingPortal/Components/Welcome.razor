@@ -1,0 +1,37 @@
+﻿@inject NavigationManager navManager
+
+<h1 class="text-center">Welcome To Our Image Rating Portal</h1>
+
+<br/>
+
+<p class="text-sm-center">Please provide an email for identification</p>
+
+<form method="post" @onsubmit=SubmitEmail>
+    <div class="form-group">
+        <label for="emailtxtbox">Email Address *</label>
+        <input type="email" required class="form-control" id="emailtxtbox" aria-describedby="emailHelp" placeholder="Enter email" @bind-value=Email>
+        <small id="emailHelp" class="form-text text-muted">Your email WILL NOT be shared with anyone else</small>
+    </div>
+    <button type="submit" class="btn btn-primary" style="width:100%">Start Rating</button>
+</form>
+
+
+
+
+
+@code {
+
+    public string? Email { get; set; }
+
+    public void SubmitEmail()
+    {
+        // Send Email to API
+
+        // Get Response
+
+        // Send Response To Next Page
+
+        navManager.NavigateTo("/newimage");
+    }
+
+}

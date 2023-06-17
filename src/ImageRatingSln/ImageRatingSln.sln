@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.6.33723.286
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageRatingPortal", "FrontEnd\ImageRatingPortal\ImageRatingPortal.csproj", "{83E75C8B-13FC-4D4C-BA4A-1C2272A4277F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ImageRatingPortal", "FrontEnd\ImageRatingPortal\ImageRatingPortal.csproj", "{83E75C8B-13FC-4D4C-BA4A-1C2272A4277F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageRatingModels", "Models\ImageRatingModels\ImageRatingModels.csproj", "{AA9E5A8E-6B82-4402-95FD-09BDA414D9D3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{83E75C8B-13FC-4D4C-BA4A-1C2272A4277F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{83E75C8B-13FC-4D4C-BA4A-1C2272A4277F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{83E75C8B-13FC-4D4C-BA4A-1C2272A4277F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA9E5A8E-6B82-4402-95FD-09BDA414D9D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA9E5A8E-6B82-4402-95FD-09BDA414D9D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA9E5A8E-6B82-4402-95FD-09BDA414D9D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA9E5A8E-6B82-4402-95FD-09BDA414D9D3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
