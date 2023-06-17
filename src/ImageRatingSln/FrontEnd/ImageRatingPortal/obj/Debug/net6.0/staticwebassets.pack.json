@@ -1,0 +1,77 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\AVeryPrivatePerson\\Documents\\Job tasks\\CareerHub\\Image Rating Application\\ImageRatingApplication\\src\\ImageRatingSln\\FrontEnd\\ImageRatingPortal\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\ImageRatingPortal.bundle.scp.css",
+      "PackagePath": "staticwebassets\\ImageRatingPortal.bundle.scp.css"
+    },
+    {
+      "Id": "C:\\Users\\AVeryPrivatePerson\\Documents\\Job tasks\\CareerHub\\Image Rating Application\\ImageRatingApplication\\src\\ImageRatingSln\\FrontEnd\\ImageRatingPortal\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\AVeryPrivatePerson\\Documents\\Job tasks\\CareerHub\\Image Rating Application\\ImageRatingApplication\\src\\ImageRatingSln\\FrontEnd\\ImageRatingPortal\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\AVeryPrivatePerson\\Documents\\Job tasks\\CareerHub\\Image Rating Application\\ImageRatingApplication\\src\\ImageRatingSln\\FrontEnd\\ImageRatingPortal\\wwwroot\\css\\open-iconic\\FONT-LICENSE",
+      "PackagePath": "staticwebassets\\css\\open-iconic"
+    },
+    {
+      "Id": "C:\\Users\\AVeryPrivatePerson\\Documents\\Job tasks\\CareerHub\\Image Rating Application\\ImageRatingApplication\\src\\ImageRatingSln\\FrontEnd\\ImageRatingPortal\\wwwroot\\css\\open-iconic\\ICON-LICENSE",
+      "PackagePath": "staticwebassets\\css\\open-iconic"
+    },
+    {
+      "Id": "C:\\Users\\AVeryPrivatePerson\\Documents\\Job tasks\\CareerHub\\Image Rating Application\\ImageRatingApplication\\src\\ImageRatingSln\\FrontEnd\\ImageRatingPortal\\wwwroot\\css\\open-iconic\\README.md",
+      "PackagePath": "staticwebassets\\css\\open-iconic\\README.md"
+    },
+    {
+      "Id": "C:\\Users\\AVeryPrivatePerson\\Documents\\Job tasks\\CareerHub\\Image Rating Application\\ImageRatingApplication\\src\\ImageRatingSln\\FrontEnd\\ImageRatingPortal\\wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css",
+      "PackagePath": "staticwebassets\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\AVeryPrivatePerson\\Documents\\Job tasks\\CareerHub\\Image Rating Application\\ImageRatingApplication\\src\\ImageRatingSln\\FrontEnd\\ImageRatingPortal\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.eot",
+      "PackagePath": "staticwebassets\\css\\open-iconic\\font\\fonts\\open-iconic.eot"
+    },
+    {
+      "Id": "C:\\Users\\AVeryPrivatePerson\\Documents\\Job tasks\\CareerHub\\Image Rating Application\\ImageRatingApplication\\src\\ImageRatingSln\\FrontEnd\\ImageRatingPortal\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.otf",
+      "PackagePath": "staticwebassets\\css\\open-iconic\\font\\fonts\\open-iconic.otf"
+    },
+    {
+      "Id": "C:\\Users\\AVeryPrivatePerson\\Documents\\Job tasks\\CareerHub\\Image Rating Application\\ImageRatingApplication\\src\\ImageRatingSln\\FrontEnd\\ImageRatingPortal\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.svg",
+      "PackagePath": "staticwebassets\\css\\open-iconic\\font\\fonts\\open-iconic.svg"
+    },
+    {
+      "Id": "C:\\Users\\AVeryPrivatePerson\\Documents\\Job tasks\\CareerHub\\Image Rating Application\\ImageRatingApplication\\src\\ImageRatingSln\\FrontEnd\\ImageRatingPortal\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.ttf",
+      "PackagePath": "staticwebassets\\css\\open-iconic\\font\\fonts\\open-iconic.ttf"
+    },
+    {
+      "Id": "C:\\Users\\AVeryPrivatePerson\\Documents\\Job tasks\\CareerHub\\Image Rating Application\\ImageRatingApplication\\src\\ImageRatingSln\\FrontEnd\\ImageRatingPortal\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.woff",
+      "PackagePath": "staticwebassets\\css\\open-iconic\\font\\fonts\\open-iconic.woff"
+    },
+    {
+      "Id": "C:\\Users\\AVeryPrivatePerson\\Documents\\Job tasks\\CareerHub\\Image Rating Application\\ImageRatingApplication\\src\\ImageRatingSln\\FrontEnd\\ImageRatingPortal\\wwwroot\\css\\site.css",
+      "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "C:\\Users\\AVeryPrivatePerson\\Documents\\Job tasks\\CareerHub\\Image Rating Application\\ImageRatingApplication\\src\\ImageRatingSln\\FrontEnd\\ImageRatingPortal\\wwwroot\\favicon.ico",
+      "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.ImageRatingPortal.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.build.ImageRatingPortal.props",
+      "PackagePath": "build\\ImageRatingPortal.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildMultiTargeting.ImageRatingPortal.props",
+      "PackagePath": "buildMultiTargeting\\ImageRatingPortal.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildTransitive.ImageRatingPortal.props",
+      "PackagePath": "buildTransitive\\ImageRatingPortal.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
