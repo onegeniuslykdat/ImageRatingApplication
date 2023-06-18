@@ -1,0 +1,48 @@
+﻿@page "/ratings"
+
+@using ImageRatingPortal.Components
+@using ImageRatingPortal.Data;
+
+@inject NavigationManager navManager
+
+<PageTitle>Ratings</PageTitle>
+
+<h1 class="text-center">Rate New Image</h1>
+
+<hr/>
+
+@if (FindImageNotSeen <= 0)
+{
+    <ThankYou />
+}
+else
+{
+    <ImageCard />
+}
+
+<br/>
+
+@if(hasRatedAnyImage)
+{
+    <a href="/userimagegridhistory" class="btn btn-secondary" style="width:100%">Your History</a>
+}
+
+
+@code {
+    public int FindImageNotSeen { get; set; } = 0;
+
+    public bool hasRatedAnyImage { get; set; } = true;
+
+    //public User user { get; set; }
+
+    protected override Task OnInitializedAsync()
+    {
+        // Check for User Details
+
+        // Load User Details
+
+        // Load Image Details
+
+        return base.OnInitializedAsync();
+    }
+}

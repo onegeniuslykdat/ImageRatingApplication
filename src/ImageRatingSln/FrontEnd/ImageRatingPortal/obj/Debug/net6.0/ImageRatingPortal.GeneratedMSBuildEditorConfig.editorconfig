@@ -24,12 +24,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xJbWFnZUNhcmQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/AVeryPrivatePerson/Documents/Job tasks/CareerHub/Image Rating Application/ImageRatingApplication/src/ImageRatingSln/FrontEnd/ImageRatingPortal/Components/LikeDislike.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMaWtlRGlzbGlrZS5yYXpvcg==
+[C:/Users/AVeryPrivatePerson/Documents/Job tasks/CareerHub/Image Rating Application/ImageRatingApplication/src/ImageRatingSln/FrontEnd/ImageRatingPortal/Components/ThankYou.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xUaGFua1lvdS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/AVeryPrivatePerson/Documents/Job tasks/CareerHub/Image Rating Application/ImageRatingApplication/src/ImageRatingSln/FrontEnd/ImageRatingPortal/Components/PreviouslySeen.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQcmV2aW91c2x5U2Vlbi5yYXpvcg==
+[C:/Users/AVeryPrivatePerson/Documents/Job tasks/CareerHub/Image Rating Application/ImageRatingApplication/src/ImageRatingSln/FrontEnd/ImageRatingPortal/Components/UserImageHistory.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xVc2VySW1hZ2VIaXN0b3J5LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/AVeryPrivatePerson/Documents/Job tasks/CareerHub/Image Rating Application/ImageRatingApplication/src/ImageRatingSln/FrontEnd/ImageRatingPortal/Components/UserImagesHistory.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xVc2VySW1hZ2VzSGlzdG9yeS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/AVeryPrivatePerson/Documents/Job tasks/CareerHub/Image Rating Application/ImageRatingApplication/src/ImageRatingSln/FrontEnd/ImageRatingPortal/Components/Welcome.razor]
@@ -48,8 +52,12 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/AVeryPrivatePerson/Documents/Job tasks/CareerHub/Image Rating Application/ImageRatingApplication/src/ImageRatingSln/FrontEnd/ImageRatingPortal/Pages/NewImage.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTmV3SW1hZ2UucmF6b3I=
+[C:/Users/AVeryPrivatePerson/Documents/Job tasks/CareerHub/Image Rating Application/ImageRatingApplication/src/ImageRatingSln/FrontEnd/ImageRatingPortal/Pages/Ratings.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmF0aW5ncy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/AVeryPrivatePerson/Documents/Job tasks/CareerHub/Image Rating Application/ImageRatingApplication/src/ImageRatingSln/FrontEnd/ImageRatingPortal/Pages/UserImageGridHistory.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlckltYWdlR3JpZEhpc3RvcnkucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/AVeryPrivatePerson/Documents/Job tasks/CareerHub/Image Rating Application/ImageRatingApplication/src/ImageRatingSln/FrontEnd/ImageRatingPortal/Shared/SurveyPrompt.razor]

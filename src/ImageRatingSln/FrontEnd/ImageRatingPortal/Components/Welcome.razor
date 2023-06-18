@@ -1,8 +1,12 @@
-﻿@inject NavigationManager navManager
+﻿@using ImageRatingPortal.Data;
 
-<h1 class="text-center">Welcome To Our Image Rating Portal</h1>
+@inject NavigationManager navManager
+@inject AppUser user
 
-<br/>
+<h1 class="text-center">Image Rating Portal</h1>
+
+<hr/>
+
 
 <p class="text-sm-center">Please provide an email for identification</p>
 
@@ -15,10 +19,6 @@
     <button type="submit" class="btn btn-primary" style="width:100%">Start Rating</button>
 </form>
 
-
-
-
-
 @code {
 
     public string? Email { get; set; }
@@ -29,9 +29,12 @@
 
         // Get Response
 
-        // Send Response To Next Page
+        // Set Response as new App User
 
-        navManager.NavigateTo("/newimage");
+        // Inject App User in every page
+
+        // Navigate
+        navManager.NavigateTo("/ratings");
     }
 
 }

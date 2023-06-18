@@ -3,9 +3,9 @@
 <PageTitle>Weather forecast</PageTitle>
 
 @using ImageRatingPortal.Data
-@inject WeatherForecastService ForecastService
+@*@inject WeatherForecastService ForecastService*@
 
-<h1>Weather forecast</h1>
+@*<h1>Weather forecast</h1>
 
 <p>This component demonstrates fetching data from a service.</p>
 
@@ -36,13 +36,13 @@ else
             }
         </tbody>
     </table>
-}
+}*@
 
 @code {
-    private WeatherForecast[]? forecasts;
+    //private WeatherForecast[]? forecasts;
 
-    protected override async Task OnInitializedAsync()
-    {
-        forecasts = await ForecastService.GetForecastAsync(DateTime.Now);
-    }
+    //protected override async Task OnInitializedAsync()
+    //{
+    //    forecasts = await ForecastService.GetForecastAsync(DateTime.Now);
+    //}
 }

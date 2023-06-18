@@ -1,0 +1,19 @@
+[Welcome Screen]
++ User enters email and clicks Register.
+- App checks if user already exists, if no, app registers user, if yes, app loads user's details.
+- App saves user's details into DI
+- All other pages/components reference this same user, if null, redirect back to Welcome Screen.
+
+[New Image Screen]
+- App checks if all images have been rated by the user, if 0 or -1, app loads [Thank You Screen], else, app sends the first randomized image.
+- App checks if the user has rated any image, if false, app hides [Your History Button], else, app shows the button.
++ User clicks on the Like/Dislike button to rate image.
+- App creates new rating for the image by the user and re-renders this page 
+* Pagination to reduce calls to API *
+
+[User Image Grid History Screen]
+- App checks if all images have been rated by the user, if 0 or -1, app hides[New Image Button], else, shows the button.
+- App loads a list of all IDs of the images that the user has rated.
+- App loads the image details based on the first ID.
+- App loads thumbnails of all images based on the IDs as a grid. 
++ User clicks on a thumbnail button, app loads the image and rating details based on this ID.

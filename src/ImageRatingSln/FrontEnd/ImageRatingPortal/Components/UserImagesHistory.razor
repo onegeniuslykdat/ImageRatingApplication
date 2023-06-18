@@ -1,0 +1,51 @@
+﻿@using ImageRatingPortal.Components
+@using ImageRatingPortal.Data;
+
+@inject AppUser user
+
+<div class="card" style="width:100%">
+    <img src=@Source class="card-img-top" style="margin-left:auto; margin-right:auto; display:block; width:50%" alt="">
+
+    <div class="card-body">
+        <button @onclick=Previous class="" style="float:left">
+            &lt;
+        </button>
+        <button @onclick=Next class="" style="float:right">
+            &gt;
+        </button>
+    </div>
+</div>
+
+@code {
+
+    //public User user { get; set; }
+
+    protected override Task OnInitializedAsync()
+    {
+        // Check for User Details
+
+        // Load User Details
+
+        // Load List of Image IDs
+        
+        // Load Image and Ratings Details per ID
+
+        return base.OnInitializedAsync();
+    }
+
+    //[Parameter]
+    //public AppUser User { get; set; }
+
+    public int ImageID { get; set; } = 1;
+
+    public string? Source { get; set; } = "https://th.bing.com/th/id/R.ff7b64cb993cc9976cd91357d29f2816?rik=7ZYM6LtEb4yozw&riu=http%3a%2f%2fimages2.fanpop.com%2fimages%2fphotos%2f5700000%2fRandom-random-5719756-1280-800.jpg&ehk=gmpmUxNQYTurxj7oZEli7uaKPUy2Ob0Ggjqmfl2Fh%2bs%3d&risl=&pid=ImgRaw&r=0";
+
+    public void Next()
+    {
+    }
+
+    public void Previous()
+    {
+    }
+
+}

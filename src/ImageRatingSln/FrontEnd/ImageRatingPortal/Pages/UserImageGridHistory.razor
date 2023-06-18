@@ -1,0 +1,39 @@
+﻿@page "/userimagegridhistory"
+
+@using ImageRatingPortal.Components
+@using ImageRatingPortal.Data;
+
+@inject NavigationManager navManager
+
+<PageTitle>History</PageTitle>
+
+<h1 class="text-center">Your History</h1>
+
+<hr/>
+
+<UserImageHistory />
+
+<br/>
+
+@if (FindImageNotSeen > 0)
+{
+    <a href="/ratings" class="btn btn-warning" style="width:100%">New Image To Rate</a>
+}
+
+
+@code {
+    public int FindImageNotSeen { get; set; } = 1;
+
+    //public User user { get; set; }
+
+    protected override Task OnInitializedAsync()
+    {
+        // Check for User Details
+
+        // Load User Details
+
+        // Load Image Details
+
+        return base.OnInitializedAsync();
+    }
+}
