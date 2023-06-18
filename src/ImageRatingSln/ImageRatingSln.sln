@@ -5,7 +5,9 @@ VisualStudioVersion = 17.6.33723.286
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ImageRatingPortal", "FrontEnd\ImageRatingPortal\ImageRatingPortal.csproj", "{83E75C8B-13FC-4D4C-BA4A-1C2272A4277F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageRatingModels", "Models\ImageRatingModels\ImageRatingModels.csproj", "{AA9E5A8E-6B82-4402-95FD-09BDA414D9D3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ImageRatingModels", "Models\ImageRatingModels\ImageRatingModels.csproj", "{AA9E5A8E-6B82-4402-95FD-09BDA414D9D3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageRatingAPI", "BackEnd\ImageRatingAPI\ImageRatingAPI.csproj", "{690469F3-D6B4-4A5D-9C07-6CFDAF0A112B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{AA9E5A8E-6B82-4402-95FD-09BDA414D9D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AA9E5A8E-6B82-4402-95FD-09BDA414D9D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AA9E5A8E-6B82-4402-95FD-09BDA414D9D3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{690469F3-D6B4-4A5D-9C07-6CFDAF0A112B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{690469F3-D6B4-4A5D-9C07-6CFDAF0A112B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{690469F3-D6B4-4A5D-9C07-6CFDAF0A112B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{690469F3-D6B4-4A5D-9C07-6CFDAF0A112B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
