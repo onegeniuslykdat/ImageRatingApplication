@@ -2,7 +2,7 @@
 
 namespace ImageRatingAPI.Data
 {
-    public class UserEntity : User
+    public class ImageEntity : Image
     {
         public DateTime DateCreated { get; set; }
     }
