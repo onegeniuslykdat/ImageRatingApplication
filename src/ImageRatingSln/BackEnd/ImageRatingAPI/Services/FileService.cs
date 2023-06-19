@@ -70,53 +70,53 @@ namespace ImageRatingAPI.Services
         //    }
         //}
 
-        public async Task<string> ConvertFileToBase64String(IFormFile file)
-        {
-            //logger.LogInformation("Inside the {method} method. About to convert file {fileName} to string", nameof(ConvertFileToBase64String), JsonConvert.SerializeObject(file.FileName));
-            try
-            {
-                // Make sure Content Type is Picture or Pdf
-                if (!((file.ContentType.Contains("image/jpeg", StringComparison.InvariantCultureIgnoreCase)) || (file.ContentType.Contains("image/jpg", StringComparison.InvariantCultureIgnoreCase)) || (file.ContentType.Contains("image/png", StringComparison.InvariantCultureIgnoreCase)) || (file.ContentType.Contains("application/pdf", StringComparison.InvariantCultureIgnoreCase)) || (file.ContentType.Contains("application/vnd.openxmlformats-officedocument.wordprocessingml.document", StringComparison.InvariantCultureIgnoreCase)) || (file.ContentType.Contains("application/vnd.openxmlformats-officedocument.wordprocessingml.document", StringComparison.InvariantCultureIgnoreCase))))
-                {
-                    //logger.LogInformation("Invalid file type for file {fileName}", JsonConvert.SerializeObject(file.FileName));
+        //public async Task<string> ConvertFileToBase64String(IFormFile file)
+        //{
+        //    //logger.LogInformation("Inside the {method} method. About to convert file {fileName} to string", nameof(ConvertFileToBase64String), JsonConvert.SerializeObject(file.FileName));
+        //    try
+        //    {
+        //        // Make sure Content Type is Picture or Pdf
+        //        if (!((file.ContentType.Contains("image/jpeg", StringComparison.InvariantCultureIgnoreCase)) || (file.ContentType.Contains("image/jpg", StringComparison.InvariantCultureIgnoreCase)) || (file.ContentType.Contains("image/png", StringComparison.InvariantCultureIgnoreCase)) || (file.ContentType.Contains("application/pdf", StringComparison.InvariantCultureIgnoreCase)) || (file.ContentType.Contains("application/vnd.openxmlformats-officedocument.wordprocessingml.document", StringComparison.InvariantCultureIgnoreCase)) || (file.ContentType.Contains("application/vnd.openxmlformats-officedocument.wordprocessingml.document", StringComparison.InvariantCultureIgnoreCase))))
+        //        {
+        //            //logger.LogInformation("Invalid file type for file {fileName}", JsonConvert.SerializeObject(file.FileName));
 
-                    return null;
-                }
+        //            return null;
+        //        }
 
-                // Setup
-                string base64String;
+        //        // Setup
+        //        string base64String;
 
-                if (file.Length > 0)
-                {
-                    using (MemoryStream stream = new MemoryStream())
-                    {
-                        await file.CopyToAsync(stream);
-                        byte[] bytes = stream.ToArray();
-                        base64String = Convert.ToBase64String(bytes);
+        //        if (file.Length > 0)
+        //        {
+        //            using (MemoryStream stream = new MemoryStream())
+        //            {
+        //                await file.CopyToAsync(stream);
+        //                byte[] bytes = stream.ToArray();
+        //                base64String = Convert.ToBase64String(bytes);
 
-                        stream.Dispose();
-                        stream.Close();
-                    }
+        //                stream.Dispose();
+        //                stream.Close();
+        //            }
 
-                    //logger.LogInformation("File {fileName} successfully converted to string", JsonConvert.SerializeObject(file.FileName));
+        //            //logger.LogInformation("File {fileName} successfully converted to string", JsonConvert.SerializeObject(file.FileName));
 
-                    return base64String;
-                }
-                else
-                {
-                    //logger.LogInformation("File {fileName} not found", JsonConvert.SerializeObject(file.FileName));
+        //            return base64String;
+        //        }
+        //        else
+        //        {
+        //            //logger.LogInformation("File {fileName} not found", JsonConvert.SerializeObject(file.FileName));
 
-                    return null;
-                }
+        //            return null;
+        //        }
 
-            }
-            catch (Exception ex)
-            {
-                //logger.LogError(ex, "An error occurred while converting file {fileName} to string", JsonConvert.SerializeObject(file.FileName));
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        //logger.LogError(ex, "An error occurred while converting file {fileName} to string", JsonConvert.SerializeObject(file.FileName));
 
-                return null;
-            }
-        }
+        //        return null;
+        //    }
+        //}
 
         //public async Task<IFormFile> DecodeFileFromBase64String(string base64String, string ext)
         //{
@@ -286,40 +286,102 @@ namespace ImageRatingAPI.Services
         //    }
         //}
 
-        public async Task<IFormFile> GetUploadedFileFromName(string name, string ext)
+        //public async Task<IFormFile> GetUploadedFileFromName(string name, string ext)
+        //{
+        //    //logger.LogInformation("Inside the {method} method.", nameof(GetUploadedFileFromName));
+        //    try
+        //    {
+        //        // Setup
+        //        IFormFile formFile;
+
+        //        // Get Upload folder path
+        //        string uploads = Path.Combine(environment.WebRootPath, "Uploads");
+
+        //        if (!Directory.Exists(uploads))
+        //        {
+        //            Directory.CreateDirectory(uploads);
+        //        }
+
+        //        // Get file
+        //        string fullpath = $"{uploads}/{name}.{ext}";
+        //        FileStream stream = new FileStream(uploads + $"/retrievedFile_{name}_{DateTime.Now.ToString("yy-MM-dd-HH-mm-ss-f".Replace('-', '_'))}.{ext}", FileMode.Create);//new FileStream(fullpath, FileMode.Open);
+
+        //        using (stream)
+        //        {
+        //            // Return file as IFormFile
+        //            formFile = new FormFile(stream, 0, stream.Length, null, $"{name}_formfile.{ext}")
+        //            {
+        //                //ContentType = ext.Equals("png", StringComparison.InvariantCultureIgnoreCase) ? "image/png"
+        //                //    : ext.Equals("jpg", StringComparison.InvariantCultureIgnoreCase) ? "image/jpeg"
+        //                //    : $"application/{ext}"
+        //            };
+        //        }
+
+        //        //logger.LogInformation("Successfully converted string to file {fileName}", JsonConvert.SerializeObject(formFile.FileName));
+
+        //        return formFile;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        //logger.LogError(ex, "An error ccurred while converting string to file");
+
+        //        return null;
+        //    }
+        //}
+
+        public async Task<string> GetFullFilePathFromName(string name)
         {
             //logger.LogInformation("Inside the {method} method.", nameof(GetUploadedFileFromName));
             try
             {
                 // Setup
-                IFormFile formFile;
+                string fullPath;
 
-                // Get Upload folder path
-                string uploads = Path.Combine(environment.WebRootPath, "Uploads");
+                // Get image folder path
+                string fullimagefolder = Path.Combine(environment.WebRootPath, imagesFolder);
 
-                if (!Directory.Exists(uploads))
+                if (!Directory.Exists(fullimagefolder))
                 {
-                    Directory.CreateDirectory(uploads);
+                    Directory.CreateDirectory(fullimagefolder);
                 }
 
                 // Get file
-                string fullpath = $"{uploads}/{name}.{ext}";
-                FileStream stream = new FileStream(uploads + $"/retrievedFile_{name}_{DateTime.Now.ToString("yy-MM-dd-HH-mm-ss-f".Replace('-', '_'))}.{ext}", FileMode.Create);//new FileStream(fullpath, FileMode.Open);
+                fullPath = $"{fullimagefolder}/{name}";
 
-                using (stream)
+                return fullPath;
+            }
+            catch (Exception ex)
+            {
+                //logger.LogError(ex, "An error ccurred while converting string to file");
+
+                return null;
+            }
+        }
+
+        public async Task<string> GetFullFileURIFromName(string name)
+        {
+            //logger.LogInformation("Inside the {method} method.", nameof(GetUploadedFileFromName));
+            try
+            {
+                // Setup
+                string fullPath;
+
+                // Get image folder path
+                string fullimagefolder = Path.Combine(environment.WebRootPath, imagesFolder);
+
+                if (!Directory.Exists(fullimagefolder))
                 {
-                    // Return file as IFormFile
-                    formFile = new FormFile(stream, 0, stream.Length, null, $"{name}_formfile.{ext}")
-                    {
-                        //ContentType = ext.Equals("png", StringComparison.InvariantCultureIgnoreCase) ? "image/png"
-                        //    : ext.Equals("jpg", StringComparison.InvariantCultureIgnoreCase) ? "image/jpeg"
-                        //    : $"application/{ext}"
-                    };
+                    Directory.CreateDirectory(fullimagefolder);
                 }
 
-                //logger.LogInformation("Successfully converted string to file {fileName}", JsonConvert.SerializeObject(formFile.FileName));
+                // Get file
+                fullPath = $"{fullimagefolder}/{name}";
 
-                return formFile;
+                // Convert to URI
+                Uri uri = new Uri(fullPath);
+                string fullURI = uri.AbsoluteUri;
+
+                return fullURI;
             }
             catch (Exception ex)
             {

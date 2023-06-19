@@ -2,3 +2,6 @@ User - ID, Email, DateCreated
 Image - ID, SourceID, BasePath, ResourcePath, URL
 ImageSource - ID, SourceName (File System, External URL) 
 UserImageRatings - UserID, ImageID, Rating (1 - Like, 0 - Dislike), DateOfRating
+
+User - Image - mtn => UserImageRatings
+Image - ImageSource - mt1
