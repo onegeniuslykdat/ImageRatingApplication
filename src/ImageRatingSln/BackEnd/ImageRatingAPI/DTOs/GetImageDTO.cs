@@ -2,7 +2,8 @@
 
 namespace ImageRatingAPI.DTOs
 {
-    public class GetUserDTO : User
+    public class GetImageDTO : Image
     {
+        public int ImageSourceID { get; set; }
     }
 }

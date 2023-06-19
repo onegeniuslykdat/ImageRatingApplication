@@ -19,7 +19,8 @@ var config = builder.Configuration;//.SetBasePath(Directory.GetCurrentDirectory(
 // Add DbContext
 builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(config.GetConnectionString("ApplicationDb"), sqlServerOptions => sqlServerOptions.CommandTimeout(int.MaxValue)), ServiceLifetime.Transient);
 
-// Add Services
+// Add Servicess
+builder.Services.AddTransient<FileService>();
 builder.Services.AddTransient<UserService>();
 builder.Services.AddTransient<ImageService>();
 builder.Services.AddTransient<UserImageRatingService>();

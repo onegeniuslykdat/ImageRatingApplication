@@ -8,7 +8,7 @@ namespace ImageRatingAPI.Data
 
         public int ImageSourceEntityID { get; set; }
 
-        public ImageSourceEntity ImageSource { get; set; } = null;
+        public ImageSourceEntity ImageSource { get; set; }
 
         public ICollection<UserImageRatingEntity> ImageRatings { get; } = new List<UserImageRatingEntity>();
     }

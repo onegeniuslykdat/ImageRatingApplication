@@ -1,4 +1,5 @@
-﻿using ImageRatingAPI.DTOs;
+﻿using ImageRatingAPI.Data;
+using ImageRatingAPI.DTOs;
 using ImageRatingAPI.Services;
 
 namespace ImageRatingAPI.Business
@@ -9,11 +10,14 @@ namespace ImageRatingAPI.Business
         private ImageService imageService { get; set; }
         private UserImageRatingService userImageRatingService { get; set; }
 
-        public BusinessFunctionalities(UserService _userService, ImageService _imageService, UserImageRatingService _userImageRatingService)
+        private FileService fileService { get; set; }
+
+        public BusinessFunctionalities(UserService _userService, ImageService _imageService, UserImageRatingService _userImageRatingService, FileService _fileService)
         {
             userService = _userService;
             imageService = _imageService;
-            userImageRatingService = _userImageRatingService; 
+            userImageRatingService = _userImageRatingService;
+            fileService = _fileService;
         }
         /*
          * App checks if user already exists - Get User by email
@@ -100,8 +104,24 @@ namespace ImageRatingAPI.Business
         * else, app shows the button
         * App creates new rating for the image by the user and re-renders this page - Create rating
         * * Pagination to reduce calls to API *
-        * 
-        * 
+        */
+        public async Task<GetImageDTO> GetImageByID(int id)
+        {
+            try
+            {
+                GetImageDTO image = await imageService.GetImageByID(id);
+                image.ResourcePath = await fileService.GetFullFileURIFromName(image.NameWithExt);
+
+                return image;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+
+        /* 
         * App checks if all images have been rated by the user - Get images NOT rated by user
         * if 0 or -1, app hides[New Image Button]
         * else, shows the button
@@ -110,5 +130,79 @@ namespace ImageRatingAPI.Business
         * App loads thumbnails of all images based on the IDs as a grid. - Get image details by image id
         * 
         */
+        public async Task<CreateRatingDTO> CreateRating(CreateRatingDTO newRating)
+        {
+            try
+            {
+                CreateRatingDTO rating = await userImageRatingService.CreateRating(newRating);
+                return rating;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+        public async Task<int> GetImagesNotRatedByUser(GetUserImagesDTO user)
+        {
+            try
+            {
+                List<GetImageDTO> images = await userImageRatingService.GetImagesNotRatedByUserID(user);
+                if(images.Count <= 0)
+                {
+                    return -1;
+                }
+                else
+                {
+                    return images[0].ID;
+                }
+            }
+            catch (Exception)
+            {
+                return default;
+            }
+        }
+
+        public async Task<List<GetImageDTO>> GetImagesRatedByUser(GetUserImagesDTO user)
+        {
+            try
+            {
+                List<GetImageDTO> images = await userImageRatingService.GetImagesRatedByUserID(user);
+
+                return images;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+        public async Task<bool> GetIfUserHasRatedAnyImage(GetUserImagesDTO user)
+        {
+            try
+            {
+                List<GetRatingsDTO> ratings = await userImageRatingService.GetRatingsByUserID(user);
+
+                return ratings.Count <= 0;
+            }
+            catch (Exception ex)
+            {
+                return default;
+            }
+        }
+
+        public async Task<GetRatingsDTO> GetRatingByImageAndUserID(GetUserAndImageRatingDTO userImageRating)
+        {
+            try
+            {
+                GetRatingsDTO rating = await userImageRatingService.GetRatingByImageIDAndUserID(userImageRating);
+
+                return rating;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
     }
 }
