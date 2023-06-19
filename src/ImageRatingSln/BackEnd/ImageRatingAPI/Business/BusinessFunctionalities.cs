@@ -148,13 +148,14 @@ namespace ImageRatingAPI.Business
             try
             {
                 List<GetImageDTO> images = await userImageRatingService.GetImagesNotRatedByUserID(user);
+                int rand = new Random().Next(0, images.Count);
                 if(images.Count <= 0)
                 {
                     return -1;
                 }
                 else
                 {
-                    return images[0].ID;
+                    return images[rand].ID;
                 }
             }
             catch (Exception)
@@ -183,7 +184,7 @@ namespace ImageRatingAPI.Business
             {
                 List<GetRatingsDTO> ratings = await userImageRatingService.GetRatingsByUserID(user);
 
-                return ratings.Count <= 0;
+                return ratings.Count > 0;
             }
             catch (Exception ex)
             {

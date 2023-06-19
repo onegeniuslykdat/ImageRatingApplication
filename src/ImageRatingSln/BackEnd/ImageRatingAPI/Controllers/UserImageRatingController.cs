@@ -1,6 +1,8 @@
 using ImageRatingAPI.Business;
 using ImageRatingAPI.DTOs;
+using ImageRatingAPI.Services;
 using Microsoft.AspNetCore.Mvc;
+using System.Net.WebSockets;
 
 namespace ImageRatingAPI.Controllers
 {
@@ -15,10 +17,34 @@ namespace ImageRatingAPI.Controllers
             functionalities = _functionalities;
         }
 
-        [HttpGet(Name = "GetImageByID")]
-        public async Task<GetImageDTO> GetByID(int id)
+        [HttpPost(Name = "GetRatingByImageAndUserID")]
+        public async Task<GetRatingsDTO> GetRatingByImageAndUserID(GetUserAndImageRatingDTO userImageRating)
         {
-            return await functionalities.GetImageByID(id);
+            return await functionalities.GetRatingByImageAndUserID(userImageRating);
+        }
+
+        [HttpPost(Name = "GetIfUserHasRatedAnyImage")]
+        public async Task<bool> GetIfUserHasRatedAnyImage(GetUserImagesDTO user)
+        {
+            return await functionalities.GetIfUserHasRatedAnyImage(user);
+        }
+
+        [HttpPost(Name = "GetImagesRatedByUser")]
+        public async Task<List<GetImageDTO>> GetImagesRatedByUser(GetUserImagesDTO user)
+        {
+            return await functionalities.GetImagesRatedByUser(user);
+        }
+
+        [HttpPost(Name = "GetImagesNotRatedByUser")]
+        public async Task<int> GetImagesNotRatedByUser(GetUserImagesDTO user)
+        {
+                return await functionalities.GetImagesNotRatedByUser(user);            
+        }
+
+        [HttpPost(Name = "CreateRating")]
+        public async Task<CreateRatingDTO> CreateRating(CreateRatingDTO newRating)
+        {
+            return await functionalities.CreateRating(newRating);               
         }
     }
 }
