@@ -41,11 +41,9 @@ namespace ImageRatingAPI.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ResourcePath")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("URL")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ID");

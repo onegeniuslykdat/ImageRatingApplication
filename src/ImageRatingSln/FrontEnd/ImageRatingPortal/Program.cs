@@ -1,3 +1,4 @@
+//using Blazored.LocalStorage;
 using ImageRatingPortal.Data;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
@@ -7,9 +8,17 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
-builder.Services.AddSingleton<AppUser>();
+
+// Add user
+//builder.Services.AddBlazoredLocalStorage();
+
+// Add other services
+builder.Services.AddTransient<AppUserServices>();
 
 var app = builder.Build();
+
+// Add Configuration
+var config = builder.Configuration;//.SetBasePath(Directory.GetCurrentDirectory());
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

@@ -1,4 +1,6 @@
+using ImageRatingAPI.Business;
 using ImageRatingAPI.Data;
+using ImageRatingAPI.Services;
 using Microsoft.EntityFrameworkCore;
 using System.Configuration;
 
@@ -16,6 +18,14 @@ var config = builder.Configuration;//.SetBasePath(Directory.GetCurrentDirectory(
 
 // Add DbContext
 builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(config.GetConnectionString("ApplicationDb"), sqlServerOptions => sqlServerOptions.CommandTimeout(int.MaxValue)), ServiceLifetime.Transient);
+
+// Add Services
+builder.Services.AddTransient<UserService>();
+builder.Services.AddTransient<ImageService>();
+builder.Services.AddTransient<UserImageRatingService>();
+
+// Add Business Functionalities
+builder.Services.AddTransient<BusinessFunctionalities>();
 
 var app = builder.Build();
 

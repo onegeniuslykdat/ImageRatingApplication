@@ -1,7 +1,9 @@
 ﻿@using ImageRatingPortal.Data;
+@using Microsoft.AspNetCore.Components.Server.ProtectedBrowserStorage
 
 @inject NavigationManager navManager
-@inject AppUser user
+@inject ProtectedLocalStorage localStorage
+@inject AppUserServices userServices
 
 <h1 class="text-center">Image Rating Portal</h1>
 
@@ -23,13 +25,25 @@
 
     public string? Email { get; set; }
 
-    public void SubmitEmail()
+    private string id = "";
+
+    //protected override Task OnAfterRenderAsync(bool firstRender)
+    //{
+    //    //localStorage.SetItem("userid", id);
+    //    return base.OnAfterRenderAsync(firstRender);
+    //}
+
+    public async Task SubmitEmail()
     {
         // Send Email to API
-
-        // Get Response
+        AppUser res = await userServices.CreateUserIfNew(new AppUser()
+            {
+                Email = Email
+            });
 
         // Set Response as new App User
+        id = res.ID.ToString();
+        await localStorage.SetAsync("userid", res.ID.ToString());
 
         // Inject App User in every page
 
