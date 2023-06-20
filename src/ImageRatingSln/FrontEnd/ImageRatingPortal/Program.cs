@@ -1,4 +1,3 @@
-//using Blazored.LocalStorage;
 using ImageRatingPortal.Data;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;

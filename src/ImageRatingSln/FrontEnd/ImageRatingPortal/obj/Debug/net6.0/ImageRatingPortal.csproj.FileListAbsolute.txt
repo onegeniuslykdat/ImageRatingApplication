@@ -22,6 +22,10 @@ C:\Users\AVeryPrivatePerson\Documents\Job tasks\CareerHub\Image Rating Applicati
 C:\Users\AVeryPrivatePerson\Documents\Job tasks\CareerHub\Image Rating Application\ImageRatingApplication\src\ImageRatingSln\FrontEnd\ImageRatingPortal\bin\Debug\net6.0\ImageRatingPortal.runtimeconfig.json
 C:\Users\AVeryPrivatePerson\Documents\Job tasks\CareerHub\Image Rating Application\ImageRatingApplication\src\ImageRatingSln\FrontEnd\ImageRatingPortal\bin\Debug\net6.0\ImageRatingPortal.dll
 C:\Users\AVeryPrivatePerson\Documents\Job tasks\CareerHub\Image Rating Application\ImageRatingApplication\src\ImageRatingSln\FrontEnd\ImageRatingPortal\bin\Debug\net6.0\ImageRatingPortal.pdb
+C:\Users\AVeryPrivatePerson\Documents\Job tasks\CareerHub\Image Rating Application\ImageRatingApplication\src\ImageRatingSln\FrontEnd\ImageRatingPortal\bin\Debug\net6.0\Blazored.LocalStorage.dll
+C:\Users\AVeryPrivatePerson\Documents\Job tasks\CareerHub\Image Rating Application\ImageRatingApplication\src\ImageRatingSln\FrontEnd\ImageRatingPortal\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Users\AVeryPrivatePerson\Documents\Job tasks\CareerHub\Image Rating Application\ImageRatingApplication\src\ImageRatingSln\FrontEnd\ImageRatingPortal\bin\Debug\net6.0\ImageRatingModels.dll
+C:\Users\AVeryPrivatePerson\Documents\Job tasks\CareerHub\Image Rating Application\ImageRatingApplication\src\ImageRatingSln\FrontEnd\ImageRatingPortal\bin\Debug\net6.0\ImageRatingModels.pdb
 C:\Users\AVeryPrivatePerson\Documents\Job tasks\CareerHub\Image Rating Application\ImageRatingApplication\src\ImageRatingSln\FrontEnd\ImageRatingPortal\obj\Debug\net6.0\ImageRatingPortal.csproj.AssemblyReference.cache
 C:\Users\AVeryPrivatePerson\Documents\Job tasks\CareerHub\Image Rating Application\ImageRatingApplication\src\ImageRatingSln\FrontEnd\ImageRatingPortal\obj\Debug\net6.0\ImageRatingPortal.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\AVeryPrivatePerson\Documents\Job tasks\CareerHub\Image Rating Application\ImageRatingApplication\src\ImageRatingSln\FrontEnd\ImageRatingPortal\obj\Debug\net6.0\ImageRatingPortal.AssemblyInfoInputs.cache
@@ -41,13 +45,9 @@ C:\Users\AVeryPrivatePerson\Documents\Job tasks\CareerHub\Image Rating Applicati
 C:\Users\AVeryPrivatePerson\Documents\Job tasks\CareerHub\Image Rating Application\ImageRatingApplication\src\ImageRatingSln\FrontEnd\ImageRatingPortal\obj\Debug\net6.0\scopedcss\Shared\NavMenu.razor.rz.scp.css
 C:\Users\AVeryPrivatePerson\Documents\Job tasks\CareerHub\Image Rating Application\ImageRatingApplication\src\ImageRatingSln\FrontEnd\ImageRatingPortal\obj\Debug\net6.0\scopedcss\bundle\ImageRatingPortal.styles.css
 C:\Users\AVeryPrivatePerson\Documents\Job tasks\CareerHub\Image Rating Application\ImageRatingApplication\src\ImageRatingSln\FrontEnd\ImageRatingPortal\obj\Debug\net6.0\scopedcss\projectbundle\ImageRatingPortal.bundle.scp.css
+C:\Users\AVeryPrivatePerson\Documents\Job tasks\CareerHub\Image Rating Application\ImageRatingApplication\src\ImageRatingSln\FrontEnd\ImageRatingPortal\obj\Debug\net6.0\ImageRatingPortal.csproj.CopyComplete
 C:\Users\AVeryPrivatePerson\Documents\Job tasks\CareerHub\Image Rating Application\ImageRatingApplication\src\ImageRatingSln\FrontEnd\ImageRatingPortal\obj\Debug\net6.0\ImageRatingPortal.dll
 C:\Users\AVeryPrivatePerson\Documents\Job tasks\CareerHub\Image Rating Application\ImageRatingApplication\src\ImageRatingSln\FrontEnd\ImageRatingPortal\obj\Debug\net6.0\refint\ImageRatingPortal.dll
 C:\Users\AVeryPrivatePerson\Documents\Job tasks\CareerHub\Image Rating Application\ImageRatingApplication\src\ImageRatingSln\FrontEnd\ImageRatingPortal\obj\Debug\net6.0\ImageRatingPortal.pdb
 C:\Users\AVeryPrivatePerson\Documents\Job tasks\CareerHub\Image Rating Application\ImageRatingApplication\src\ImageRatingSln\FrontEnd\ImageRatingPortal\obj\Debug\net6.0\ImageRatingPortal.genruntimeconfig.cache
 C:\Users\AVeryPrivatePerson\Documents\Job tasks\CareerHub\Image Rating Application\ImageRatingApplication\src\ImageRatingSln\FrontEnd\ImageRatingPortal\obj\Debug\net6.0\ref\ImageRatingPortal.dll
-C:\Users\AVeryPrivatePerson\Documents\Job tasks\CareerHub\Image Rating Application\ImageRatingApplication\src\ImageRatingSln\FrontEnd\ImageRatingPortal\bin\Debug\net6.0\Newtonsoft.Json.dll
-C:\Users\AVeryPrivatePerson\Documents\Job tasks\CareerHub\Image Rating Application\ImageRatingApplication\src\ImageRatingSln\FrontEnd\ImageRatingPortal\bin\Debug\net6.0\ImageRatingModels.dll
-C:\Users\AVeryPrivatePerson\Documents\Job tasks\CareerHub\Image Rating Application\ImageRatingApplication\src\ImageRatingSln\FrontEnd\ImageRatingPortal\bin\Debug\net6.0\ImageRatingModels.pdb
-C:\Users\AVeryPrivatePerson\Documents\Job tasks\CareerHub\Image Rating Application\ImageRatingApplication\src\ImageRatingSln\FrontEnd\ImageRatingPortal\obj\Debug\net6.0\ImageRatingPortal.csproj.CopyComplete
-C:\Users\AVeryPrivatePerson\Documents\Job tasks\CareerHub\Image Rating Application\ImageRatingApplication\src\ImageRatingSln\FrontEnd\ImageRatingPortal\bin\Debug\net6.0\Blazored.LocalStorage.dll

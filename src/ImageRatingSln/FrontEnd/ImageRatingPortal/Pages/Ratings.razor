@@ -48,7 +48,21 @@ else
 
     private bool hasdataloaded = false;
 
-    protected override async Task OnAfterRenderAsync(bool firstRender) //OnInitializedAsync()
+    protected override async Task OnInitializedAsync()//OnAfterRenderAsync(bool firstRender) //OnInitializedAsync()
+    {
+        try
+        {
+            await LoadComponentData();
+        }
+        catch (Exception)
+        {
+            //await InvokeAsync(StateHasChanged);
+        }
+        
+        //return base.OnInitializedAsync();
+    }
+
+    public async Task LoadComponentData()
     {
         // Check for User Details
         string? useridString = (await localStorage.GetAsync<string>("userid")).Value;
@@ -59,7 +73,7 @@ else
         UserId = int.Parse(useridString);
 
         // Check if there are images the user has not seen
-        int res1 = await userImageRatingServices.GetImagesNotRatedByUser(new AppUser()
+        int res1 = await userImageRatingServices.GetRandomImageNotRatedByUser(new AppUser()
             {
                 ID = UserId
             });
@@ -73,36 +87,5 @@ else
         hasRatedAnyImage = res2;
 
         hasdataloaded = true;
-
-        StateHasChanged();
-
-        //return base.OnInitializedAsync();
     }
-
-    //protected override async Task OnAfterRenderAsync(bool firstRender)
-    //{
-    //    // Check for User Details
-    //    //string? useridString = (await localStorage.GetAsync<string>("userid")).Value;
-    //    //if (string.IsNullOrWhiteSpace(useridString))
-    //    //{
-    //    //    navManager.NavigateTo("/");
-    //    //}
-    //    //UserId = int.Parse(useridString);
-
-    //    // Check if there are images the user has not seen
-    //    //int res1 = await userImageRatingServices.GetImagesNotRatedByUser(new AppUser()
-    //    //{
-    //    //        ID = UserId
-    //    //});
-    //    //FindImageNotSeen = res1;
-
-    //    // Check if user has rated any image
-    //    //bool res2 = await userImageRatingServices.GetIfUserHasRatedAnyImage(new AppUser()
-    //    //    {
-    //    //        ID = UserId
-    //    //    });
-    //    //hasRatedAnyImage = res2;
-
-    //    //await base.OnAfterRenderAsync(firstRender);
-    //}
 }

@@ -23,19 +23,19 @@ namespace ImageRatingPortal.Data
                 rating = userImageRating.Rating
             };
 
-        string endpointUrl = config["UserAPIConfiguration:Create"].ToString();
+        string endpointUrl = config["UserImageRatingAPIConfiguration:Create"].ToString();
             AppUserImageRating res = await APIRequestServices<AppUserImageRating>.Post(baseUrl, endpointUrl, JsonConvert.SerializeObject(rating));
 
             return res;
         }
 
-        public async Task<int> GetImagesNotRatedByUser(AppUser user)
+        public async Task<int> GetRandomImageNotRatedByUser(AppUser user)
         {
             var requestUser = new
             {
                 userId = user.ID
             };
-            string endpointUrl = config["UserImageRatingAPIConfiguration:GetImagesNotRatedByUser"].ToString();
+            string endpointUrl = config["UserImageRatingAPIConfiguration:GetRandomImageNotRatedByUser"].ToString();
             int res = await APIRequestServices<int>.Post(baseUrl, endpointUrl, JsonConvert.SerializeObject(requestUser));
 
             return res;

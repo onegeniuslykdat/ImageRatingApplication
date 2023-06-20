@@ -170,6 +170,11 @@ namespace ImageRatingAPI.Business
             {
                 List<GetImageDTO> images = await userImageRatingService.GetImagesRatedByUserID(user);
 
+                foreach(var image in images)
+                {
+                    image.ResourcePath = (await GetImageByID(image.ID)).ResourcePath;
+                }
+
                 return images;
             }
             catch (Exception)

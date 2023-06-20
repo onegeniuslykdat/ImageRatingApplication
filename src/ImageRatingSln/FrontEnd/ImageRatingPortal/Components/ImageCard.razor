@@ -35,7 +35,13 @@ else
 
 @code {
 
-    protected override async Task OnAfterRenderAsync(bool firstRender) //OnInitializedAsync() //OnAfterRenderAsync(bool firstRender)
+    protected override async Task OnInitializedAsync() //OnAfterRenderAsync(bool firstRender)
+    {
+        // Load Data
+        await LoadComponentData();
+    }
+
+    public async Task LoadComponentData()
     {
         // Check for User Details
         string? useridString = (await localStorage.GetAsync<string>("userid")).Value;
@@ -99,13 +105,13 @@ else
             });
 
         // Show Next Image - Re-render component with new info
-        int res2 = await userImageRatingServices.GetImagesNotRatedByUser(new AppUser()
+        int res2 = await userImageRatingServices.GetRandomImageNotRatedByUser(new AppUser()
             {
                 ID = UserId
             });
         ImageID = res2;
 
-        StateHasChanged();
+        await LoadComponentData();
     }
 
 }

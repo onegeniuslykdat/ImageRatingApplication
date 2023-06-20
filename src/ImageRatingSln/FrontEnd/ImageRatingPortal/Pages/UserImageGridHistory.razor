@@ -2,38 +2,82 @@
 
 @using ImageRatingPortal.Components
 @using ImageRatingPortal.Data;
+@using Microsoft.AspNetCore.Components.Server.ProtectedBrowserStorage;
 
 @inject NavigationManager navManager
+@inject ProtectedLocalStorage localStorage
+@inject AppUserImageRatingServices userImageRatingServices
 
 <PageTitle>History</PageTitle>
 
 <h1 class="text-center">Your History</h1>
 
-<hr/>
-
-<UserImageHistory />
-
-<br/>
-
-@if (FindImageNotSeen > 0)
+@if(hasdataloaded)
 {
-    <a href="/ratings" class="btn btn-warning" style="width:100%">New Image To Rate</a>
+    <hr />
+
+    <UserImageHistory UserImagesRated=UserImagesRated/>
+
+    <br />
+
+    @if (FindImageNotSeen > 0)
+    {
+        <a href="/ratings" class="btn btn-warning" style="width:100%">New Image To Rate</a>
+    }
+}
+else
+{
+    <h3 class="text-center">Please Wait...</h3>
 }
 
 
+
+
 @code {
-    public int FindImageNotSeen { get; set; } = 1;
+    public int FindImageNotSeen { get; set; }
 
-    //public User user { get; set; }
+    public int UserId { get; set; }
 
-    protected override Task OnInitializedAsync()
+    public List<AppImage> UserImagesRated { get; set; } = new List<AppImage>();
+
+    private bool hasdataloaded = false;
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            await LoadComponentData();
+        }
+        catch (Exception)
+        {
+            //await InvokeAsync(StateHasChanged);
+        }
+    }
+
+    public async Task LoadComponentData()
     {
         // Check for User Details
+        string? useridString = (await localStorage.GetAsync<string>("userid")).Value;
+        if (string.IsNullOrWhiteSpace(useridString))
+        {
+            navManager.NavigateTo("/");
+        }
+        UserId = int.Parse(useridString);
 
-        // Load User Details
+        // Check if there are images the user has not seen
+        int res1 = await userImageRatingServices.GetRandomImageNotRatedByUser(new AppUser()
+            {
+                ID = UserId
+            });
+        FindImageNotSeen = res1;
 
-        // Load Image Details
+        // Get list of images the user has rated
+        List<AppImage> res2 = await userImageRatingServices.GetImagesRatedByUser(new AppUser()
+            {
+                ID = UserId
+            });
+            UserImagesRated = res2;
 
-        return base.OnInitializedAsync();
+        hasdataloaded = true;
     }
 }

@@ -1,11 +1,16 @@
 ﻿@using ImageRatingPortal.Components
 @using ImageRatingPortal.Data;
+@using Microsoft.AspNetCore.Components.Server.ProtectedBrowserStorage;
+
+@inject NavigationManager navManager
+@inject ProtectedLocalStorage localStorage
+@inject AppUserImageRatingServices userImageRatingServices
 
 <div class="card" style="width:100%">
-    <img src=@GetImageDetails(0) class="card-img-top" style="margin-left:auto; margin-right:auto; display:block; width:50%" alt="">
+    <img src=@SelectedImageSource class="card-img-top" style="margin-left:auto; margin-right:auto; display:block; width:50%" alt="">
 
     <div class="card-body">
-        @if(Rating == 1)
+        @if(SelectedImageRating == 1)
         {
             <p>
                 <span>
@@ -30,13 +35,11 @@
         <hr/>
         <div class="container">
             <div class="row">
-                @for(int i = 0; i < UserImagesRatedIDs.Count; i++)
+                @foreach(AppImage image in UserImagesRated)
                 {
-                    int position = i;
-
                     <div class="col-lg-2 col-md-2 col-sm-3 col-4">
-                        <button class="btn btn-outline-info" @onclick="() => ViewThisImageDetails(position)">
-                            <img src=@GetImageDetails(position) class="img-thumbnail" style="" alt="">
+                        <button class="btn btn-outline-info" @onclick="() => ViewThisImageDetails(image)">
+                            <img src=@image.ResourcePath class="img-thumbnail" style="" alt="">
                         </button>
                     </div>
                 }                
@@ -54,46 +57,85 @@
 
 @code {
 
-    //public User user { get; set; }
+    private bool hasdataloaded = false;
 
-    protected override Task OnInitializedAsync()
-    {
-        // Check for User Details
+    [Parameter]
+    public List<AppImage> UserImagesRated { get; set; }
 
-        // Load User Details
-
-        // Load list of IDs of all images rated by the user
-
-        // Load Image and Rating Details
-
-        return base.OnInitializedAsync();
-    }
-
-    //[Parameter]
-    //public AppUser User { get; set; }
-
-    public List<int> UserImagesRatedIDs { get; set; } = new List<int>() { 0};
-
-    public int Rating { get; set; } = 0;
+    public int SelectedImageRating { get; set; }
 
     public int UserId { get; set; }
 
-    public int ImageID { get; set; } = 1;
+    public int SelectedImageID { get; set; }
 
-    public string? Source { get; set; }
+    public string? SelectedImageSource { get; set; }
 
-    public void ViewThisImageDetails(int position)
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadComponentData();
+
+        //return base.OnInitializedAsync();
+    }
+
+    public async Task LoadComponentData()
+    {
+        // Check for User Details
+        string? useridString = (await localStorage.GetAsync<string>("userid")).Value;
+        if (string.IsNullOrWhiteSpace(useridString))
+        {
+            navManager.NavigateTo("/");
+        }
+        UserId = int.Parse(useridString);
+
+        // Get list of images the user has rated
+        //List<AppImage> res2 = await userImageRatingServices.GetImagesRatedByUser(new AppUser()
+        //    {
+        //        ID = UserId
+        //    });
+        //UserImagesRated = res2;
+
+        // Load Image and Rating details of first image in list
+        await LoadSelectedImageData(UserImagesRated[0]);
+
+        hasdataloaded = true;
+    }
+
+    public async Task LoadSelectedImageData(AppImage image)
+    {
+        // Check for User Details
+        string? useridString = (await localStorage.GetAsync<string>("userid")).Value;
+        if (string.IsNullOrWhiteSpace(useridString))
+        {
+            navManager.NavigateTo("/");
+        }
+        UserId = int.Parse(useridString);
+
+        // Set imageid, imagesource, imagerating.
+        AppUserImageRating res = await userImageRatingServices.GetRatingByImageAndUserID(new AppUserImageRating()
+            {
+                ImageID = image.ID,
+                UserID = UserId
+            });
+        SelectedImageID = res.ImageID;
+        SelectedImageSource = image.ResourcePath;
+        SelectedImageRating = res.Rating;
+    }   
+
+    public async Task ViewThisImageDetails(AppImage image)
     {
         // Get Image and User Rating Details By Image ID
-
-        Console.WriteLine("Worked");
-
-        StateHasChanged();
+        await LoadSelectedImageData(image);
     }
 
-    public string GetImageDetails(int postion) // Should return Image
-    {
-        return "https://th.bing.com/th/id/R.ff7b64cb993cc9976cd91357d29f2816?rik=7ZYM6LtEb4yozw&riu=http%3a%2f%2fimages2.fanpop.com%2fimages%2fphotos%2f5700000%2fRandom-random-5719756-1280-800.jpg&ehk=gmpmUxNQYTurxj7oZEli7uaKPUy2Ob0Ggjqmfl2Fh%2bs%3d&risl=&pid=ImgRaw&r=0";
-    }
+    //public async Task<AppImage> GetImageDetailsByID(int imageid)
+    //{
+    //    // Check for User Details
+    //    string? useridString = (await localStorage.GetAsync<string>("userid")).Value;
+    //    if (string.IsNullOrWhiteSpace(useridString))
+    //    {
+    //        navManager.NavigateTo("/");
+    //    }
+    //    UserId = int.Parse(useridString);
 
+    //}
 }

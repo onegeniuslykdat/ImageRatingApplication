@@ -35,8 +35,8 @@ namespace ImageRatingAPI.Controllers
             return await functionalities.GetImagesRatedByUser(user);
         }
 
-        [HttpPost(Name = "GetImagesNotRatedByUser")]
-        public async Task<int> GetImagesNotRatedByUser(GetUserImagesDTO user)
+        [HttpPost(Name = "GetRandomImageNotRatedByUser")]
+        public async Task<int> GetRandomImageNotRatedByUser(GetUserImagesDTO user)
         {
                 return await functionalities.GetImagesNotRatedByUser(user);            
         }
