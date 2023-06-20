@@ -37,7 +37,7 @@ namespace ImageRatingPortal.Data
             };
 
             string endpointUrl = config["UserAPIConfiguration:GetByID"].ToString();
-            AppUser res = await APIRequestServices<AppUser>.Get(baseUrl, endpointUrl, JsonConvert.SerializeObject(userToCheck));
+            AppUser res = await APIRequestServices<AppUser>.Post(baseUrl, endpointUrl, JsonConvert.SerializeObject(userToCheck));
 
             return res;
         }

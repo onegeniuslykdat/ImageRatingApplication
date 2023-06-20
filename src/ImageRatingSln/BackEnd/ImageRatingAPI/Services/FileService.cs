@@ -7,13 +7,12 @@ namespace ImageRatingAPI.Services
     public class FileService
     {
         private readonly IWebHostEnvironment environment;
-        //private readonly ILogger<FileService> logger;
-        //private readonly IOptions<FileConfiguration> fileOptions;
+        private readonly IConfiguration config;
         private readonly string imagesFolder = "images";
-        public FileService(IWebHostEnvironment _env, ILogger<FileService> _logger) //, IOptions<FileConfiguration> _fileOptions)
+        public FileService(IWebHostEnvironment _env, IConfiguration _config)
         {
             environment = _env;
-            //logger = _logger;
+            config = _config;
         }
 
         //public async Task<string> GetFileUrl(IFormFile file)
@@ -358,30 +357,15 @@ namespace ImageRatingAPI.Services
             }
         }
 
-        public async Task<string> GetFullFileURIFromName(string name)
+        public async Task<string> GetFullFileURLFromName(string name)
         {
             //logger.LogInformation("Inside the {method} method.", nameof(GetUploadedFileFromName));
             try
             {
                 // Setup
-                string fullPath;
+                string fullURLPath = $"{config["AppPath"]}/{imagesFolder}/{name}"; 
 
-                // Get image folder path
-                string fullimagefolder = Path.Combine(environment.WebRootPath, imagesFolder);
-
-                if (!Directory.Exists(fullimagefolder))
-                {
-                    Directory.CreateDirectory(fullimagefolder);
-                }
-
-                // Get file
-                fullPath = $"{fullimagefolder}/{name}";
-
-                // Convert to URI
-                Uri uri = new Uri(fullPath);
-                string fullURI = uri.AbsoluteUri;
-
-                return fullURI;
+                return fullURLPath;
             }
             catch (Exception ex)
             {

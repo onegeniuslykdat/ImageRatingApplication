@@ -1,7 +1,5 @@
 ﻿@using ImageRatingPortal.Data;
 
-@inject AppUser user
-
 <div class="card-body">
     <h3 class="text-center">Thank you for participating</h3>
     <br/>
@@ -26,8 +24,8 @@
     [Parameter]
     public int ImageID { get; set; }
 
-    public int UserImageRating { get; set; } = 1;
+    public int UserId { get; set; }
 
-    public string? Source { get; set; } = "https://th.bing.com/th/id/R.ff7b64cb993cc9976cd91357d29f2816?rik=7ZYM6LtEb4yozw&riu=http%3a%2f%2fimages2.fanpop.com%2fimages%2fphotos%2f5700000%2fRandom-random-5719756-1280-800.jpg&ehk=gmpmUxNQYTurxj7oZEli7uaKPUy2Ob0Ggjqmfl2Fh%2bs%3d&risl=&pid=ImgRaw&r=0";
+    public string? Source { get; set; }
 
 }

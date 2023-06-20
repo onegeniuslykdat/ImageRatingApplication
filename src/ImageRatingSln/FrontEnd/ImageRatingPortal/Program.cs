@@ -9,11 +9,10 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 
-// Add user
-//builder.Services.AddBlazoredLocalStorage();
-
 // Add other services
 builder.Services.AddTransient<AppUserServices>();
+builder.Services.AddTransient<AppImageServices>();
+builder.Services.AddTransient<AppUserImageRatingServices>();
 
 var app = builder.Build();
 

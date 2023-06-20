@@ -6,6 +6,7 @@
 
 @inject NavigationManager navManager
 @inject ProtectedLocalStorage localStorage
+@inject AppUserImageRatingServices userImageRatingServices
 
 <PageTitle>Ratings</PageTitle>
 
@@ -13,30 +14,41 @@
 
 <hr/>
 
-@if (FindImageNotSeen <= 0)
+@if(hasdataloaded)
 {
-    <ThankYou />
+    @if (FindImageNotSeen <= 0)
+    {
+        <ThankYou />
+    }
+    else
+    {
+        <ImageCard ImageID=FindImageNotSeen />
+    }
+
+    <br />
+
+    @if (hasRatedAnyImage)
+    {
+        <a href="/userimagegridhistory" class="btn btn-secondary" style="width:100%">Your History</a>
+    }
 }
 else
 {
-    <ImageCard />
-}
-
-<br/>
-
-@if(hasRatedAnyImage)
-{
-    <a href="/userimagegridhistory" class="btn btn-secondary" style="width:100%">Your History</a>
+    <h3 class="text-center">Please Wait...</h3>
 }
 
 
 @code {
 
-    public int FindImageNotSeen { get; set; } = 0;
+    public int FindImageNotSeen { get; set; }
 
-    public bool hasRatedAnyImage { get; set; } = true;
+    public bool hasRatedAnyImage { get; set; }
 
-    protected override async Task OnInitializedAsync()
+    public int UserId { get; set; }
+
+    private bool hasdataloaded = false;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender) //OnInitializedAsync()
     {
         // Check for User Details
         string? useridString = (await localStorage.GetAsync<string>("userid")).Value;
@@ -44,12 +56,53 @@ else
         {
             navManager.NavigateTo("/");
         }
-        int userid = int.Parse(useridString);
+        UserId = int.Parse(useridString);
 
         // Check if there are images the user has not seen
+        int res1 = await userImageRatingServices.GetImagesNotRatedByUser(new AppUser()
+            {
+                ID = UserId
+            });
+        FindImageNotSeen = res1;
 
-        // Load Image Details
+        // Check if user has rated any image
+        bool res2 = await userImageRatingServices.GetIfUserHasRatedAnyImage(new AppUser()
+            {
+                ID = UserId
+            });
+        hasRatedAnyImage = res2;
+
+        hasdataloaded = true;
+
+        StateHasChanged();
 
         //return base.OnInitializedAsync();
     }
+
+    //protected override async Task OnAfterRenderAsync(bool firstRender)
+    //{
+    //    // Check for User Details
+    //    //string? useridString = (await localStorage.GetAsync<string>("userid")).Value;
+    //    //if (string.IsNullOrWhiteSpace(useridString))
+    //    //{
+    //    //    navManager.NavigateTo("/");
+    //    //}
+    //    //UserId = int.Parse(useridString);
+
+    //    // Check if there are images the user has not seen
+    //    //int res1 = await userImageRatingServices.GetImagesNotRatedByUser(new AppUser()
+    //    //{
+    //    //        ID = UserId
+    //    //});
+    //    //FindImageNotSeen = res1;
+
+    //    // Check if user has rated any image
+    //    //bool res2 = await userImageRatingServices.GetIfUserHasRatedAnyImage(new AppUser()
+    //    //    {
+    //    //        ID = UserId
+    //    //    });
+    //    //hasRatedAnyImage = res2;
+
+    //    //await base.OnAfterRenderAsync(firstRender);
+    //}
 }

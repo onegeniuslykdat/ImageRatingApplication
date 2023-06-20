@@ -25,14 +25,6 @@
 
     public string? Email { get; set; }
 
-    private string id = "";
-
-    //protected override Task OnAfterRenderAsync(bool firstRender)
-    //{
-    //    //localStorage.SetItem("userid", id);
-    //    return base.OnAfterRenderAsync(firstRender);
-    //}
-
     public async Task SubmitEmail()
     {
         // Send Email to API
@@ -42,10 +34,7 @@
             });
 
         // Set Response as new App User
-        id = res.ID.ToString();
         await localStorage.SetAsync("userid", res.ID.ToString());
-
-        // Inject App User in every page
 
         // Navigate
         navManager.NavigateTo("/ratings");

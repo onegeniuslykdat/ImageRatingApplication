@@ -110,7 +110,7 @@ namespace ImageRatingAPI.Business
             try
             {
                 GetImageDTO image = await imageService.GetImageByID(id);
-                image.ResourcePath = await fileService.GetFullFileURIFromName(image.NameWithExt);
+                image.ResourcePath = await fileService.GetFullFileURLFromName(image.NameWithExt);
 
                 return image;
             }

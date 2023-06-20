@@ -1,8 +1,6 @@
 ﻿@using ImageRatingPortal.Components
 @using ImageRatingPortal.Data;
 
-@inject AppUser user
-
 <div class="card" style="width:100%">
     <img src=@GetImageDetails(0) class="card-img-top" style="margin-left:auto; margin-right:auto; display:block; width:50%" alt="">
 
@@ -77,6 +75,8 @@
     public List<int> UserImagesRatedIDs { get; set; } = new List<int>() { 0};
 
     public int Rating { get; set; } = 0;
+
+    public int UserId { get; set; }
 
     public int ImageID { get; set; } = 1;
 
