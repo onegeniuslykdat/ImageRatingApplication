@@ -27,10 +27,10 @@
 
     <br />
 
-    @if (hasRatedAnyImage)
-    {
+    @*@if (hasRatedAnyImage)
+    {*@
         <a href="/userimagegridhistory" class="btn btn-secondary" style="width:100%">Your History</a>
-    }
+    @*}*@
 }
 else
 {
@@ -80,11 +80,11 @@ else
         FindImageNotSeen = res1;
 
         // Check if user has rated any image
-        bool res2 = await userImageRatingServices.GetIfUserHasRatedAnyImage(new AppUser()
-            {
-                ID = UserId
-            });
-        hasRatedAnyImage = res2;
+        //bool res2 = await userImageRatingServices.GetIfUserHasRatedAnyImage(new AppUser()
+        //    {
+        //        ID = UserId
+        //    });
+        //hasRatedAnyImage = res2;
 
         hasdataloaded = true;
     }

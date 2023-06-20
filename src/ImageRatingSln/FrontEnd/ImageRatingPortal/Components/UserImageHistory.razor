@@ -113,9 +113,17 @@
                 ImageID = image.ID,
                 UserID = UserId
             });
-        SelectedImageID = res.ImageID;
-        SelectedImageSource = image.ResourcePath;
-        SelectedImageRating = res.Rating;
+        if(res is null)
+        {
+            navManager.NavigateTo("/ratings");
+            return;
+        }
+        else
+        {
+            SelectedImageID = res.ImageID;
+            SelectedImageSource = image.ResourcePath;
+            SelectedImageRating = res.Rating;
+        }        
     }   
 
     public async Task ViewThisImageDetails(AppImage image)

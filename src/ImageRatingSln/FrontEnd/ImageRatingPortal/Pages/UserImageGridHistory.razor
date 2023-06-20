@@ -12,13 +12,24 @@
 
 <h1 class="text-center">Your History</h1>
 
+<hr />
+
 @if(hasdataloaded)
 {
-    <hr />
+    @if(UserImagesRated.Count == 0)
+    {
+        <div class="card-body">
+            <h3 class="text-center">You have not rated any image yet</h3>
 
-    <UserImageHistory UserImagesRated=UserImagesRated/>
+            <br />
+        </div>
+    }
+    else
+    {
+        <UserImageHistory UserImagesRated=UserImagesRated />
 
-    <br />
+        <br />
+    }    
 
     @if (FindImageNotSeen > 0)
     {
@@ -76,15 +87,17 @@ else
             {
                 ID = UserId
             });
-        if(res2 is null || res2.Count == 0)
-        {
-            navManager.NavigateTo("/ratings");
-        }
-        else
-        {
-            UserImagesRated = res2;
 
-            hasdataloaded = true;
-        }
+        UserImagesRated = res2;
+
+        hasdataloaded = true;
+        //if (UserImagesRated is null || UserImagesRated.Count == 0)
+        //{
+        //    //navManager.NavigateTo("/ratings");
+        //}
+        //else
+        //{
+           
+        //}
     }
 }
