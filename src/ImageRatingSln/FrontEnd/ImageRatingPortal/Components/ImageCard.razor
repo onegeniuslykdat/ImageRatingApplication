@@ -37,8 +37,14 @@ else
 
     protected override async Task OnInitializedAsync() //OnAfterRenderAsync(bool firstRender)
     {
-        // Load Data
-        await LoadComponentData();
+        try
+        {
+            // Load Data
+            await LoadComponentData();
+        }
+        catch (Exception)
+        {
+        }
     }
 
     public async Task LoadComponentData()
@@ -68,16 +74,6 @@ else
 
     private bool hasdataloaded = false;
 
-    public string[] LikeBtnProperties()
-    {
-        return new string[] { "Blue", "disabled" };
-    }
-
-    public string[] DislikeBtnProperties()
-    {
-        return new string[] { "Red", "" };
-    }
-
     public async Task SubmitLike()
     {
         int rating = 1;
@@ -96,22 +92,35 @@ else
 
     public async Task SubmitRating(int rating)
     {
-        // Send Rating to API
-        AppUserImageRating res1 = await userImageRatingServices.Create(new AppUserImageRating()
-            {
-                ImageID = ImageID,
-                UserID = UserId,
-                Rating = rating
-            });
+        try
+        {
+            // Send Rating to API
+            AppUserImageRating res1 = await userImageRatingServices.Create(new AppUserImageRating()
+                {
+                    ImageID = ImageID,
+                    UserID = UserId,
+                    Rating = rating
+                });
 
-        // Show Next Image - Re-render component with new info
-        int res2 = await userImageRatingServices.GetRandomImageNotRatedByUser(new AppUser()
+            // Show Next Image - Re-render component with new info
+            int res2 = await userImageRatingServices.GetRandomImageNotRatedByUser(new AppUser()
+                {
+                    ID = UserId
+                });            
+            if(res2 <= 0)
             {
-                ID = UserId
-            });
-        ImageID = res2;
+                navManager.NavigateTo("/thankyou");
+            }
+            else
+            {
+                ImageID = res2;
 
-        await LoadComponentData();
+                await LoadComponentData();                
+            }
+        }
+        catch (Exception)
+        {
+        }
     }
 
 }

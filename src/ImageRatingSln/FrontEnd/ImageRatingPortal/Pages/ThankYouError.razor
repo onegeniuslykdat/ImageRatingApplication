@@ -1,0 +1,73 @@
+﻿@page "/thankyou"
+
+@using ImageRatingPortal.Components
+@using ImageRatingPortal.Data;
+@using Microsoft.AspNetCore.Components.Server.ProtectedBrowserStorage
+
+@inject NavigationManager navManager
+@inject ProtectedLocalStorage localStorage
+@inject AppUserImageRatingServices userImageRatingServices
+
+<PageTitle>Ratings</PageTitle>
+
+<h1 class="text-center">Rate New Image</h1>
+
+<hr/>
+
+@if(hasdataloaded)
+{
+        <ThankYou />
+
+    @if (hasRatedAnyImage)
+    {
+        <a href="/userimagegridhistory" class="btn btn-secondary" style="width:100%">Your History</a>
+    }
+}
+else
+{
+    <h3 class="text-center">Please Wait...</h3>
+}
+
+
+@code {
+
+    public bool hasRatedAnyImage { get; set; }
+
+    public int UserId { get; set; }
+
+    private bool hasdataloaded = false;
+
+    protected override async Task OnInitializedAsync()//OnAfterRenderAsync(bool firstRender) //OnInitializedAsync()
+    {
+        try
+        {
+            await LoadComponentData();
+        }
+        catch (Exception)
+        {
+            //await InvokeAsync(StateHasChanged);
+        }
+        
+        //return base.OnInitializedAsync();
+    }
+
+    public async Task LoadComponentData()
+    {
+        // Check for User Details
+        string? useridString = (await localStorage.GetAsync<string>("userid")).Value;
+        if (string.IsNullOrWhiteSpace(useridString))
+        {
+            navManager.NavigateTo("/");
+        }
+        UserId = int.Parse(useridString);
+
+        // Check if user has rated any image
+        bool res2 = await userImageRatingServices.GetIfUserHasRatedAnyImage(new AppUser()
+            {
+                ID = UserId
+            });
+        hasRatedAnyImage = res2;
+
+        hasdataloaded = true;
+    }
+}

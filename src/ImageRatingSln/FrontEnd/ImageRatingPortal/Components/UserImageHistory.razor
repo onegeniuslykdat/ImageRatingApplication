@@ -72,9 +72,13 @@
 
     protected override async Task OnInitializedAsync()
     {
-        await LoadComponentData();
-
-        //return base.OnInitializedAsync();
+        try
+        {
+            await LoadComponentData();
+        }
+        catch (Exception)
+        {
+        }
     }
 
     public async Task LoadComponentData()
@@ -86,13 +90,6 @@
             navManager.NavigateTo("/");
         }
         UserId = int.Parse(useridString);
-
-        // Get list of images the user has rated
-        //List<AppImage> res2 = await userImageRatingServices.GetImagesRatedByUser(new AppUser()
-        //    {
-        //        ID = UserId
-        //    });
-        //UserImagesRated = res2;
 
         // Load Image and Rating details of first image in list
         await LoadSelectedImageData(UserImagesRated[0]);
@@ -123,19 +120,14 @@
 
     public async Task ViewThisImageDetails(AppImage image)
     {
-        // Get Image and User Rating Details By Image ID
-        await LoadSelectedImageData(image);
+        try
+        {
+            // Get Image and User Rating Details By Image ID
+            await LoadSelectedImageData(image);
+        }
+        catch (Exception)
+        {
+            navManager.NavigateTo("/ratings");
+        }
     }
-
-    //public async Task<AppImage> GetImageDetailsByID(int imageid)
-    //{
-    //    // Check for User Details
-    //    string? useridString = (await localStorage.GetAsync<string>("userid")).Value;
-    //    if (string.IsNullOrWhiteSpace(useridString))
-    //    {
-    //        navManager.NavigateTo("/");
-    //    }
-    //    UserId = int.Parse(useridString);
-
-    //}
 }
