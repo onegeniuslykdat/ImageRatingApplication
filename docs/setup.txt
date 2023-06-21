@@ -1,0 +1,11 @@
+* Clone the repo unto your PC.
+
+* Create the ImageRatingDB.
+
+* Check the AppPath and Connectionstring in the backend project appsettings and edit to suit your PC.
+
+* Check the API endpoints in the frontend project appsettings and edit to match the backend.
+
+* Use the intialimagecreation sql script as a guide to populate the images table.
+
+* Run the projects, the required migrations would be applied to your empty DB and the tables would be created.
