@@ -29,7 +29,7 @@
 
     @*@if (hasRatedAnyImage)
     {*@
-        <a href="/userimagegridhistory" class="btn btn-secondary" style="width:100%">Your History</a>
+        <a href="/userimagegridhistory" class="btn btn-secondary" style="width:100%">Your Image Rating History</a>
     @*}*@
 }
 else
@@ -58,8 +58,6 @@ else
         {
             //await InvokeAsync(StateHasChanged);
         }
-        
-        //return base.OnInitializedAsync();
     }
 
     public async Task LoadComponentData()

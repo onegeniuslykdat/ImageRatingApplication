@@ -170,7 +170,7 @@ namespace ImageRatingAPI.Business
             {
                 List<GetImageDTO> images = await userImageRatingService.GetImagesRatedByUserID(user);
 
-                foreach(var image in images)
+                foreach(var image in images) // TODO: Remove foreach loop when admin portal for creating images is created
                 {
                     image.ResourcePath = (await GetImageByID(image.ID)).ResourcePath;
                 }

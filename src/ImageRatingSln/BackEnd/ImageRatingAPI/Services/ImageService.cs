@@ -25,7 +25,8 @@ namespace ImageRatingAPI.Services
                 NameWithExt = i.NameWithExt,
                 ResourcePath = i.ResourcePath,
                 ImageSourceID = i.ImageSourceEntityID,
-                URL = i.URL
+                URL = i.URL,
+                Description = i.Description
             }).ToList();
         }
 

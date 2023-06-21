@@ -65,7 +65,8 @@ namespace ImageRatingAPI.Services
                         ImageSourceID = i.ImageSourceEntityID,
                         NameWithExt = i.NameWithExt,
                         ResourcePath = i.ResourcePath,
-                        URL = i.URL
+                        URL = i.URL,
+                        Description = i.Description
                     });
                 }
             }
@@ -91,7 +92,8 @@ namespace ImageRatingAPI.Services
                         ImageSourceID = i.ImageSourceEntityID,
                         NameWithExt = i.NameWithExt,
                         ResourcePath = i.ResourcePath,
-                        URL = i.URL
+                        URL = i.URL,
+                        Description = i.Description
                     });
                 }
             }
@@ -123,7 +125,8 @@ namespace ImageRatingAPI.Services
                         ImageSourceID = i.ImageSourceEntityID,
                         NameWithExt = i.NameWithExt,
                         ResourcePath = i.ResourcePath,
-                        URL = i.URL
+                        URL = i.URL,
+                        Description = i.Description
                     });
                 }
             }
@@ -149,7 +152,8 @@ namespace ImageRatingAPI.Services
                         ImageSourceID = i.ImageSourceEntityID,
                         NameWithExt = i.NameWithExt,
                         ResourcePath = i.ResourcePath,
-                        URL = i.URL
+                        URL = i.URL,
+                        Description = i.Description
                     });
                 }
             }
